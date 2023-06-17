@@ -23,12 +23,16 @@ function App() {
   );
 
   const handleRounds = () => {
-    newObj = { p1: p1Score, p2: p2Score };
-    setRounds([...rounds, newObj]);
-    localStorage.setItem(
-      localStorageRounds,
-      JSON.stringify([...rounds, newObj])
-    );
+    if (p1Score === 0 && p2Score === 0) {
+      alert("Invalid Score");
+    } else {
+      newObj = { p1: p1Score, p2: p2Score };
+      setRounds([...rounds, newObj]);
+      localStorage.setItem(
+        localStorageRounds,
+        JSON.stringify([...rounds, newObj])
+      );
+    }
   };
 
   const handleResetScore = () => {
